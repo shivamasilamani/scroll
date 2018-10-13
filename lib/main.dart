@@ -81,7 +81,8 @@ class _HomeState extends State<Home> {
           Expanded(
             child: RefreshIndicator(
                 child: _firebaseMemeList(context),
-                onRefresh: _onRefresh),
+                onRefresh: _onRefresh,
+            )
           )
         ],
       ),
@@ -183,7 +184,7 @@ class _HomeState extends State<Home> {
                                 style: new TextStyle(
                                   fontSize: 12.0,
                                   fontFamily: 'Roboto',
-                                  color: new Color(0xFF3498db),
+                                  color: new Color(0xFF45aaf2),
                                   fontWeight: FontWeight.bold,
                                 )
                             )
@@ -241,7 +242,8 @@ class _HomeState extends State<Home> {
     _launchURL(originalUrl);
   }
 
-  Future<Null> _onRefresh() {
+  Future<Null> _onRefresh() async{
+    await new Future.delayed(new Duration(seconds: 1));
     return null;
   }
 
