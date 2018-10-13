@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "100760860262",
+    "firebase_url": "https://vaan-scroll.firebaseio.com",
+    "project_id": "vaan-scroll",
+    "storage_bucket": "vaan-scroll.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100760860262:android:d007dd1cbd048151",
+        "android_client_info": {
+          "package_name": "com.vaanlabs.scroll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100760860262-rvab7ale2hennorfbh3i9i2skl45l8eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUvfU_jmMGvybHWEr8K_HQ0SOP8zb2ntI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
