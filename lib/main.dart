@@ -79,10 +79,10 @@ class _HomeState extends State<Home> {
         children: <Widget>[
           _headerBar(),
           Expanded(
-            child: RefreshIndicator(
+              child: RefreshIndicator(
                 child: _firebaseMemeList(context),
                 onRefresh: _onRefresh,
-            )
+              )
           )
         ],
       ),
@@ -123,6 +123,63 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildList(DataSnapshot snapshot, Animation<double> animation, int x) {
+    if (snapshot.value['credit'] == '@9GAG') {
+      return _lastItem();
+    } else {
+      return _regularItem(snapshot, animation, x);
+    }
+  }
+
+  Widget _lastItem() {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 15.0, left: 5.0, right: 5.0),
+      child: Card(
+        color: Color(0xFF2c3e50),
+        elevation: 0.0,
+        child: new Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(
+                    top: 35.0, left: 10.0, right: 10.0),
+                child: Container(
+                  color: Color(0xFFf1c40f),
+                  height: 2.0,
+                  width: 200.0
+                )
+            ),
+            Padding(
+                padding: EdgeInsets.only(
+                    top: 15.0, left: 10.0, right: 10.0, bottom: 10.0),
+                child: Text(
+                    'Enough for Today!',
+                    style: new TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'Roboto',
+                      color: new Color(0xFFffffff),
+                    )
+                )
+            ),
+            Padding(
+                padding: EdgeInsets.only(
+                    bottom: 55.0, left: 10.0, right: 10.0),
+                child: Text(
+                    'Go do something productive!!',
+                    style: new TextStyle(
+                      fontSize: 10.0,
+                      fontFamily: 'Roboto',
+                      color: new Color(0xFFffffff),
+                    )
+                )
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _regularItem(DataSnapshot snapshot, Animation<double> animation,
+      int x) {
     return Padding(
       padding: EdgeInsets.only(bottom: 15.0, left: 5.0, right: 5.0),
       child: Card(
@@ -213,8 +270,9 @@ class _HomeState extends State<Home> {
                     child: Icon(Icons.share, color: Color(0xFFffffff)),
                   ),
                   RaisedButton(
-                    onPressed: () => _onNavToOriginalTap(
-                        snapshot.value['original_post_url']),
+                    onPressed: () =>
+                        _onNavToOriginalTap(
+                            snapshot.value['original_post_url']),
                     elevation: 0.0,
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
@@ -242,7 +300,7 @@ class _HomeState extends State<Home> {
     _launchURL(originalUrl);
   }
 
-  Future<Null> _onRefresh() async{
+  Future<Null> _onRefresh() async {
     await new Future.delayed(new Duration(seconds: 1));
     return null;
   }
