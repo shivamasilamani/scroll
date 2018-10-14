@@ -7,7 +7,7 @@ description: Endless scroll for fun
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
 # Read more about versioning at semver.org.
-version: 1.0.0+1
+version: 1.0.0
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
@@ -26,6 +26,14 @@ dependencies:
   flutter_downloader: ^1.0.3
   permission_handler: ^2.0.0
   pinch_zoom_image: ^0.1.1
+  flutter_launcher_icons: ^0.6.1
+
+flutter_icons:
+  android: true
+  ios: "Icon"
+  image_path: "assets/images/scroll_icon.png"
+  image_path_android: "assets/images/scroll_icon.png"
+  image_path_ios: "assets/images/scroll_icon.png"
 
 dev_dependencies:
   flutter_test:
